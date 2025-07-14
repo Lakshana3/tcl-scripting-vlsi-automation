@@ -21,7 +21,7 @@ The content is aimed at enabling automation in digital design flows by providing
 #### Day 1: Introduction to TCL and VSDSYNTH Toolbox Usage
 ##### Introduction to TCL task
 - Learned the overall goal of the TCL-based flow.
-- The task involves converting spreadsheet inputs (design-related CSV files) into useful design results like runtime, instance count, and timing reports.
+- The task involves converting spreadsheet inputs (design-related CSV files) into design characteristics like runtime, instance count, and timing reports.
 - This is done using a TCL-based framework/toolbox, here referred to as the VSDSYNTH TCL box.
 ##### Introduction to Sub-Task
 - Understood the sub-task workflow and required tools.
