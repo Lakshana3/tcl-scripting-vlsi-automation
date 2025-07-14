@@ -25,11 +25,12 @@ The content is aimed at enabling automation in digital design flows by providing
 - This is done using a TCL-based framework/toolbox, here referred to as the VSDSYNTH TCL box.
 ##### Introduction to Sub-Task
 - Understood the sub-task workflow and required tools.
-- The process starts by using a shell command (e.g., vsdsynth) to:
+- The process starts by creating a shell command (e.g., vsdsynth) to:
   - Pass .csv input files from the UNIX shell to a TCL script.
   - Convert all inputs into format[1] and SDC format.
   - Send these to the Yosys synthesis tool.
 - Further convert format[1] and SDC to format[2], which is then passed to the Opentimer timing analysis tool.
+- Finally, generate output report.
 
 ### Module 2: Variable Creation & Constraint Processing
 - Working with matrices and arrays in TCL
