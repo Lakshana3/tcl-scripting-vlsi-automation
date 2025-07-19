@@ -21,7 +21,7 @@
 ![image](/Images/D1/7.png)
 ![image](/Images/D1/8.png)
 
-<pre lang="markdown"> ```tcsh 
+<pre lang="tcsh"> 
 #!/bin/tcsh -f
 # ---------------------------------------------------------------------------- #
 # Script      : tclify.sh
@@ -100,7 +100,7 @@ else
     # $argv[1] = input CSV file
     tclsh tclify_core.tcl $argv[1]
 endif
-``` </pre>
+</pre>
 
 ![image](/Images/D1/10.png)
 ![image](/Images/D1/11.png)
