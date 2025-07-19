@@ -628,6 +628,25 @@ while { $i < $end_of_ports } {
 close $tmp2_file
 </pre>
 
+| Syntax                  | Meaning                                               |
+| ----------------------- | ----------------------------------------------------- |
+| `set var value`         | Assigns `value` to variable `var`                     |
+| `[command args]`        | Executes `command` and returns its result             |
+| `expr {}`               | Evaluates math or logical expression                  |
+| `if {condition} {}`     | Conditional execution                                 |
+| `while {condition} {}`  | Loop while condition is true                          |
+| `foreach var list {}`   | Loop over each element in a list                      |
+| `puts "text"`           | Prints text to terminal                               |
+| `puts -nonewline`       | Prints without newline                                |
+| `open path mode`        | Opens a file (modes: `"r"` for read, `"w"` for write) |
+| `close file_id`         | Closes the opened file                                |
+| `glob -dir path *.v`    | Gets list of `.v` files in directory                  |
+| `split string sep`      | Splits string by separator                            |
+| `join list sep`         | Joins list into string with separator                 |
+| `lsort -unique list`    | Sorts and removes duplicates                          |
+| `regexp pattern string` | Checks regex match                                    |
+| `regsub`                | Substitutes regex in string                           |
+
 ![image](/Images/D3/12.png)
 ![image](/Images/D3/13.png)
 ![image](/Images/D3/14.png)
