@@ -124,7 +124,7 @@ puts "\nInfo: SDC created. Please use constraints in path  $OutputDirectory/$Des
 ![image](/Images/D4/11.png)
 ![image](/Images/D4/12.png)
 
-<pre> ```verilog
+```verilog
 //memory.v
   
 // Define a module named 'memory' with ports: CLK (clock), ADDR (address), DIN (data input), DOUT (data output)
@@ -160,7 +160,7 @@ end
 endmodule
         
 // Add this file inside the verilog module directory
-```</pre>
+```
 
 <pre lang="markdown">
 memory.ys:
