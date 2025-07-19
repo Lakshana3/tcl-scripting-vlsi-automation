@@ -13,7 +13,7 @@
 ![image](/Images/D2/9.png)
 ![image](/Images/D2/10.png)
 
-<pre lang="markdown"> 
+<pre lang="tcl"> 
 # tclify_core.tcl
 
 #!/bin/env tclsh
