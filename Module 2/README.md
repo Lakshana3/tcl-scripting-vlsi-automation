@@ -106,7 +106,7 @@ return
 ![image](/Images/D2/12.png)
 ![image](/Images/D2/13.png)
 
-<pre lang="markdown">
+<pre lang="tcl">
 # tclify_core.tcl
   
 # ------------------------------------------------------------
@@ -184,7 +184,7 @@ if {![file exists $ConstraintsFile]} {
 ![image](/Images/D2/27.png)
 ![image](/Images/D2/28.png)
 
-<pre lang="markdown"> 
+<pre lang="tcl"> 
 # tclify_core.tcl
 
 #----------------------  Constraints FILE creation --------------------------#
