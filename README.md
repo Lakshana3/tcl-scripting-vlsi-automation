@@ -156,7 +156,7 @@ endif
 ![image](/Images/D2/9.png)
 ![image](/Images/D2/10.png)
 
-<pre lang="markdown"> ```tclsh 
+<pre lang="markdown"> 
 #!/bin/env tclsh
 # The shebang tells the system to use Tcl shell to run this script.
 
@@ -228,7 +228,7 @@ puts "ConstraintsFile   = $ConstraintsFile"
 
 # Exit the script
 return
-``` </pre>
+</pre>
 
 `return` will be included to test every part of the code hereon.
 
