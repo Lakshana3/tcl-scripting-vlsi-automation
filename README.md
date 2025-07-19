@@ -796,7 +796,7 @@ puts "\nInfo: SDC created. Please use constraints in path  $OutputDirectory/$Des
 ![image](/Images/D4/11.png)
 ![image](/Images/D4/12.png)
 
-<pre lang="markdown"> ```verilog
+<pre lang="markdown">
 // Define a module named 'memory' with ports: CLK (clock), ADDR (address), DIN (data input), DOUT (data output)
 module memory (CLK, ADDR, DIN, DOUT);
 
@@ -830,7 +830,7 @@ end
 endmodule
 
 // Add this file inside the verilog module directory
-```</pre>
+</pre>
 
 <pre lang="markdown">
 # Read the standard cell library used for synthesis
