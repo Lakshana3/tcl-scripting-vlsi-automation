@@ -831,6 +831,7 @@ endmodule
 
 // Add this file inside the verilog module directory
 ```</pre>
+
 <pre lang="markdown">
 # Read the standard cell library used for synthesis
 # -lib             : tells yosys it's a library file, not a design file
