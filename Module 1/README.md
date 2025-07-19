@@ -21,7 +21,7 @@
 ![image](/Images/D1/7.png)
 ![image](/Images/D1/8.png)
 
-<pre lang="tcsh"> 
+<pre lang="sh"> 
 #!/bin/tcsh -f
 # ---------------------------------------------------------------------------- #
 # Script      : tclify.sh
