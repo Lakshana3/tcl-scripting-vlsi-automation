@@ -19,7 +19,7 @@ The content is aimed at enabling automation in digital design flows by providing
 
 | Module | Description |
 |--------|-------------|
-| [Module 1](./"Module 1"/) | Introduction to TCL and VSDSYNTH Toolbox Usage |
+| [Module 1](./Module 1/) | Introduction to TCL and VSDSYNTH Toolbox Usage |
 | Module 2 | Variable Creation and Processing Constraints from CSV | 
 | Module 3 | Processing Clock and Input Constraints | 
 | Module 4 | Complete Scripting and Yosys Synthesis Introduction | 
