@@ -797,83 +797,67 @@ puts "\nInfo: SDC created. Please use constraints in path  $OutputDirectory/$Des
 ![image](/Images/D4/12.png)
 
 <pre lang="markdown">
+//memory.v
+  
 // Define a module named 'memory' with ports: CLK (clock), ADDR (address), DIN (data input), DOUT (data output)
 module memory (CLK, ADDR, DIN, DOUT);
-
 // Define parameters: wordSize (width of data) and addressSize (number of address bits)
 // These can be overridden during module instantiation
 parameter wordSize = 1;
 parameter addressSize = 1;
-
 // Declare input signals:
 // ADDR: address to access memory
 // CLK : clock signal to trigger memory operations
 input ADDR, CLK;
-
 // DIN: input data of width [wordSize - 1:0]
 input [wordSize-1:0] DIN;
-
 // DOUT: output data, declared as 'reg' since it is assigned in always block
 output reg [wordSize-1:0] DOUT;
-
 // Declare memory: an array of 2^addressSize locations
 // Each location stores [wordSize:0] bits
 reg [wordSize:0] mem [0:(1<<addressSize)-1];
-
 // Always block triggered on the rising edge of CLK
 // This simulates synchronous memory behavior (write and read on clock edge)
 always @(posedge CLK) begin
     mem[ADDR] <= DIN;   // Write input data (DIN) to memory at address ADDR
     DOUT <= mem[ADDR];  // Read data from memory at address ADDR and output it
 end
-
 endmodule
-
 // Add this file inside the verilog module directory
 </pre>
 
----
+---***---
 
 <pre lang="markdown">
+memory.ys:
 # Read the standard cell library used for synthesis
 # -lib             : tells yosys it's a library file, not a design file
 # -ignore_miss_dir : avoids errors if pin directions are missing
 # -setattr blackbox: marks cells as blackbox modules (used for logic synthesis)
 read_liberty -lib -ignore_miss_dir -setattr blackbox /home/vsduser/vsdsynth/osu018_stdcells.lib
-
 # Read the Verilog RTL source file
 read_verilog memory.v
-
 # Define the top-level module for synthesis
 # This is necessary if there are multiple modules or hierarchy
 synth -top memory
-
 # Split multi-bit nets connected to ports into separate 1-bit wires
 # Useful for older tools or gate-level synthesis
 splitnets -ports -format
-
 # Map flip-flops and sequential elements using the provided standard cell library
 dfflibmap -liberty /home/vsduser/vsdsynth/osu018_stdcells.lib
-
 # Perform generic optimizations (remove redundant logic, constant folding, etc.)
 opt
-
 # Run technology mapping using ABC tool (And-Inverter Graph based logic synthesis)
 # Converts RTL-level logic into gates from the given library
 abc -liberty /home/vsduser/vsdsynth/osu018_stdcells.lib
-
 # Flatten hierarchical modules into a single-level netlist
 flatten
-
 # Clean up unnecessary wires, cells, and modules aggressively
 clean -purge
-
 # Run another round of optimizations after flattening
 opt
-
 # Clean up again to remove anything unused after optimization
 clean
-
 # Write the final synthesized gate-level Verilog netlist to a file
 write_verilog memory_synth.v
 </pre>
