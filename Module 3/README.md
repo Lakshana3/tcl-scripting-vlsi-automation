@@ -7,7 +7,7 @@
 ![image](/Images/D3/3.png)
 ![image](/Images/D3/4.png)
 
-<pre lang="markdown"> 
+<pre lang="tcl"> 
 # tclify_core.tcl
 
 # ---------------------- Extract clock constraint start indices ---------------------- #
@@ -113,7 +113,7 @@ while { $i < $end_of_ports } {
 ![image](/Images/D3/10.png)
 ![image](/Images/D3/11.png)
 
-<pre lang="markdown"> 
+<pre lang="tcl"> 
 # tclify_core.tcl
   
 # ------------------- Create input delay and slew constraints ------------------- #
@@ -263,7 +263,7 @@ close $tmp2_file
 ![image](/Images/D3/21.png)
 ![image](/Images/D3/22.png)
 
-<pre lang="markdown"> 
+<pre lang="tcl"> 
 # tclify_core.tcl
 
 puts "\nInfo: SDC created. Please use constraints in path $OutputDirectory/$DesignName.sdc"
