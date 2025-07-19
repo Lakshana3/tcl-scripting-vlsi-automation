@@ -57,7 +57,7 @@ The content is aimed at enabling automation in digital design flows by providing
 ![image](/Images/D1/7.png)
 ![image](/Images/D1/8.png)
 
-<pre lang="markdown"> ```tcsh 
+<pre lang="markdown"> ```tclsh 
 #!/bin/tcsh -f
 # ---------------------------------------------------------------------------- #
 # Script      : tclify.sh
@@ -247,7 +247,7 @@ return
 ![image](/Images/D2/12.png)
 ![image](/Images/D2/13.png)
 
-<pre lang="markdown"> ```tcl 
+<pre lang="markdown"> ```tclsh 
 # ------------------------------------------------------------
 # Validate that required files and directories mentioned in 
 # the CSV file exist or not. If a file is missing, exit.
@@ -323,7 +323,7 @@ if {![file exists $ConstraintsFile]} {
 ![image](/Images/D2/27.png)
 ![image](/Images/D2/28.png)
 
-<pre lang="markdown"> ```tcl 
+<pre lang="markdown"> ```tclsh 
 #----------------------  Constraints FILE creation --------------------------#
 #----------------------------- SDC Format -----------------------------------#
 
