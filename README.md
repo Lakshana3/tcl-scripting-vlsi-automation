@@ -57,7 +57,7 @@ The content is aimed at enabling automation in digital design flows by providing
 ![image](/Images/D1/7.png)
 ![image](/Images/D1/8.png)
 
-<pre lang="markdown"> ```tclsh 
+<pre lang="markdown"> ```tcsh 
 #!/bin/tcsh -f
 # ---------------------------------------------------------------------------- #
 # Script      : tclify.sh
@@ -156,7 +156,7 @@ endif
 ![image](/Images/D2/9.png)
 ![image](/Images/D2/10.png)
 
-<pre lang="markdown"> ```tcl 
+<pre lang="markdown"> ```tclsh 
 #!/bin/env tclsh
 # The shebang tells the system to use Tcl shell to run this script.
 
