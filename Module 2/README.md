@@ -117,17 +117,6 @@ return
 
 `return` will be included to test every part of the code hereon.
 
-| **Tcl Syntax**                  | **Meaning**                                              |
-| ------------------------------- | -------------------------------------------------------- |
-| `set var value`                 | Assigns a value to a variable                            |
-| `[lindex $list n]`              | Returns the *n*th item from a list                       |
-| `while {condition} {}`          | Loops while the condition is true                        |
-| `switch -- $var { case {...} }` | Matches a variable’s value to defined cases              |
-| `puts "text"`                   | Prints text to terminal                                  |
-| `incr i`                        | Increments variable `i` by 1                             |
-| `package require name`          | Loads an external module or extension (like csv, struct) |
-| `::namespace::command`          | Refers to a command in a specific Tcl namespace          |
-
 ![image](/Images/D2/11.png)
 
 Run the 'tclify' program/script located in the current directory, using 'openMSP430_design_details.csv' as the input CSV file.
@@ -188,16 +177,6 @@ if {![file exists $ConstraintsFile]} {
     puts "\nInfo: Constraints file found in path $ConstraintsFile"
 }
 </pre>
-
-| **Tcl Syntax**            | **Description**                                                         |
-| ------------------------- | ----------------------------------------------------------------------- |
-| `{ ... }`                 | Used to group code blocks in control structures (e.g., `if`, `while`).  |
-| **Spacing rule**          | Always leave spaces between operators (`!`, `==`, etc.) and variables.  |
-| `file exists <path>`      | Returns true if the file exists at the given path.                      |
-| `file isdirectory <path>` | Returns true if the given path is a directory.                          |
-| `puts`                    | Prints a message to the console or terminal.                            |
-| `exit`                    | Stops the script immediately.                                           |
-| `file mkdir <path>`       | Creates a directory at the specified path if it does not already exist. |
 
 ![image](/Images/D2/14.png)
 
@@ -283,19 +262,6 @@ puts "input_ports_start = $input_ports_start"
 set output_ports_start [lindex [lindex [constraints search all OUTPUTS] 0 ] 1]
 puts "output_ports_start = $output_ports_start"
 </pre>
-
-| **Tcl Syntax**              | **Explanation**                                                                                   |
-| --------------------------- | ------------------------------------------------------------------------------------------------- |
-| `puts "message"`            | Prints the message to the terminal/output.                                                        |
-| `set var value`             | Assigns a value to a variable.                                                                    |
-| `open <filename>`           | Opens a file (for reading or writing) and returns a file handle (channel).                        |
-| `close <channel>`           | Closes the opened file channel.                                                                   |
-| `::struct::matrix`          | Part of Tcllib – creates a matrix data structure (like a table or spreadsheet).                   |
-| `csv::read2matrix`          | Reads a CSV file and loads it into a matrix.                                                      |
-| `matrix rows`               | Returns the number of rows in the matrix.                                                         |
-| `matrix columns`            | Returns the number of columns in the matrix.                                                      |
-| `matrix search all <value>` | Searches for all cells in the matrix that contain `<value>`, returning their {col row} positions. |
-| `lindex list index`         | Returns the item at the given position from a list. Nested `lindex` is used to drill down.        |
 
 ![image](/Images/D2/29.png)
 
