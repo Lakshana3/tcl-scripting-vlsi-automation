@@ -90,4 +90,4 @@ The content is aimed at enabling automation in digital design flows by providing
 
 ## Acknowledgements
 
-I extend my sincere gratitude to Mr. Kunal Ghosh for sharing his profound expertise throughout the workshop.
+I extend my sincere gratitude to Mr. Kunal Ghosh, VSD for sharing his profound expertise throughout the workshop.
