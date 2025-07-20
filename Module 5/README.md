@@ -73,21 +73,6 @@ if {[catch {exec yosys -s $OutputDirectory/$DesignName.ys >& $OutputDirectory/$D
 # Print the log file location
 puts "\nInfo: Please refer to log $OutputDirectory/$DesignName.synthesis.log"
 </pre>
-
-| Tcl Syntax             | Meaning                                                            |
-| ---------------------- | ------------------------------------------------------------------ |
-| `set var value`        | Assigns `value` to `var`                                           |
-| `puts "text"`          | Prints `text` to the console                                       |
-| `puts -nonewline`      | Prints without adding a newline character                          |
-| `open <file> <mode>`   | Opens a file in a specific mode (`"r"` for read, `"w"` for write)  |
-| `close <fileId>`       | Closes the opened file                                             |
-| `glob -dir <path> *.v` | Lists all `.v` files in the specified directory                    |
-| `foreach var list {}`  | Loop that iterates over each item in `list`, assigning it to `var` |
-| `catch {command} var`  | Catches any error during command execution, stores output in `var` |
-| `if {condition} {}`    | If condition is true, execute the block                            |
-| `${var}` or `$var`     | Gets the value of the variable `var`                               |
-| `exec command`         | Executes an external shell command                                 |
-| `>&`                   | Redirects both stdout and stderr to a file (used in shell via Tcl) |
   
 ![image](/Images/D5/1.png)  
 
@@ -198,19 +183,6 @@ puts "\nInfo: Please find the synthesized netlist for $DesignName at below path.
 puts "\n$OutputDirectory/$DesignName.final.synth.v"
 </pre>
 
-| **Syntax**                         | **Purpose**                                                         |
-| ---------------------------------- | ------------------------------------------------------------------- |
-| `set var value`                    | Assigns a value to a variable                                       |
-| `open filename mode`               | Opens a file in read (`"r"`), write (`"w"`), or append (`"a"`) mode |
-| `puts $var`                        | Prints the value of a variable followed by newline                  |
-| `puts -nonewline $file data`       | Writes data to file without a newline                               |
-| `exec`                             | Executes shell commands                                             |
-| `[gets $fid line] != -1`           | Reads a line from file until EOF                                    |
-| `string map {pattern replacement}` | Replaces a pattern in a string                                      |
-| `while {condition} {}`             | Repeats code block while condition is true                          |
-| `close $fileId`                    | Closes the file handle                                              |
-| `$variable`                        | Accesses the value of a variable                                    |
-
 ![image](/Images/D5/18.png)  
 
 Remove out dir and run tclify.
@@ -288,21 +260,6 @@ proc set_multi_cpu_usage {args} {
 set_multi_cpu_usage -localCpu 8 -help
 </pre>
 
-| **Syntax**                          | **Purpose**                                                        |
-| ----------------------------------- | ------------------------------------------------------------------ |
-| `proc name {args} {body}`           | Defines a procedure                                                |
-| `array set arrName {key value ...}` | Initializes an associative array                                   |
-| `array get arrName`                 | Returns list of key-value pairs from array                         |
-| `foreach {key val} $list {}`        | Iterates over key-value pairs in a list                            |
-| `puts "string"`                     | Prints string to console with newline                              |
-| `return`                            | Exits the current procedure                                        |
-| `[llength $list]`                   | Returns number of elements in a list                               |
-| `[lindex $list n]`                  | Gets the nth element of a list (indexing starts from 0)            |
-| `switch -glob -- $value {cases}`    | Matches value against patterns and executes corresponding block    |
-| `lassign $list var1 var2`           | Assigns values from list to variables (e.g., from args to options) |
-| `set var value`                     | Assigns value to a variable                                        |
-| `$var`                              | Fetches the value of a variable                                    |
-
 ![image](/Images/D5/26.png)  
 
 Running the proc using tclsh. 
@@ -350,18 +307,6 @@ reopenStdout $OutputDirectory/$DesignName.conf
 set_multi_cpu_usage -localCpu 4
 </pre>
 
-| **Tcl Keyword / Concept**         | **Purpose**                                                  |
-| --------------------------------- | ------------------------------------------------------------ |
-| `puts "text"`                     | Prints the given text to console or file                     |
-| `\n`                              | Newline character in strings                                 |
-| `source file_path`                | Executes another Tcl script located at `file_path`           |
-| `set var value`                   | Assigns `value` to a variable named `var`                    |
-| `$varName`                        | Refers to the value stored in variable `varName`             |
-| `proc name {args} {body}`         | Declares a procedure with name, arguments, and body          |
-| `reopenStdout path`               | Custom procedure (likely redirects stdout to a log file)     |
-| `set_multi_cpu_usage -localCpu 4` | Custom procedure to set number of threads (multi-core usage) |
-| `#`                               | Comment in Tcl                                               |
-
 ![image](/Images/D5/34.png)  
 
 <pre lang="tcl"> 
@@ -378,14 +323,6 @@ proc reopenStdout {file} {
     open $file w
 }
 </pre>
-
-| **Command**               | **Description**                               |
-| ------------------------- | --------------------------------------------- |
-| `proc name {args} {body}` | Defines a new procedure                       |
-| `close fileID`            | Closes a file or stream (like `stdout`)       |
-| `open $file mode`         | Opens a file with a given mode (`w` = write)  |
-| `stdout`                  | The standard output stream (default terminal) |
-| `$var`                    | Refers to the value of variable `var`         |
 
 ![image](/Images/D5/35.png)  
 
@@ -436,14 +373,6 @@ read_lib -early /home/vsduser/vsdsynth/osu018_stdcells.lib
 read_lib -late /home/vsduser/vsdsynth/osu018_stdcells.lib
 </pre>
 
-| **Tcl Command**       | **Description**                                                   |
-| --------------------- | ----------------------------------------------------------------- |
-| `source filename`     | Executes the Tcl code from the given file                         |
-| `proc name {args} {}` | Defines a new procedure                                           |
-| `read_lib`            | A user-defined procedure (from `read_lib.proc`)                   |
-| `-early` / `-late`    | Options or flags passed to a procedure to control its behavior    |
-| `""` (quotes)         | Used for paths or strings containing special characters or spaces 
-
 ![image](/Images/D5/45.png)  
 
 <pre lang="tcl"> 
@@ -493,18 +422,6 @@ proc read_lib args {
 }
 </pre>
 
-| **Tcl Command / Construct**   | **Explanation**                                                     |
-| ----------------------------- | ------------------------------------------------------------------- |
-| `proc name args {body}`       | Defines a procedure with a variable-length argument list `args`     |
-| `array set arrName {key val}` | Initializes a Tcl associative array with keys and values            |
-| `while {condition} {}`        | Repeats the body while the condition is true                        |
-| `llength list`                | Returns the number of items in a list                               |
-| `lindex list index`           | Returns the element at the specified index in a list                |
-| `lassign list var1 var2`      | Assigns elements of a list to variables; returns the remaining list |
-| `switch -glob -- val {}`      | Compares a value to patterns using glob-style matching              |
-| `puts "text"`                 | Prints text to the terminal                                         |
-| `break`                       | Exits a loop or switch early                                        |
-
 ![image](/Images/D5/46.png)  
 
 Output after running tclify command is shown.
@@ -525,12 +442,6 @@ source /home/vsduser/vsdsynth/read_verilog.proc
 read_verilog $OutputDirectory/$DesignName.final.synth.v
 </pre>
 
-| **Tcl Command / Construct** | **Explanation**                                              |
-| --------------------------- | ------------------------------------------------------------ |
-| `source filename`           | Reads and executes the Tcl script file `filename`            |
-| `command arg1 arg2 ...`     | Calls a procedure or command with given arguments            |
-| `$variable`                 | Accesses the value stored in a Tcl variable named `variable` |
-
 ![image](/Images/D5/48.png)  
 
 <pre lang="tcl"> 
@@ -543,12 +454,6 @@ proc read_verilog {arg1} {
     puts "set_verilog_fpath $arg1"
 }
 </pre>
-
-| **Tcl Command / Construct** | **Explanation**                      |
-| --------------------------- | ------------------------------------ |
-| `proc name {args} {body}`   | Defines a new procedure named `name` |
-| `puts string`               | Prints `string` to standard output   |
-| `$var`                      | Access the value of variable `var`   |
 
 ![image](/Images/D5/49.png)  
 
@@ -686,23 +591,6 @@ proc read_sdc {arg1} {
 read_sdc /home/vsduser/vsdsynth/outdir_openMSP430/openMSP430.sdc  
 </pre>
 
-| **Tcl Syntax**                            | **Description**                                                               |
-| ----------------------------------------- | ----------------------------------------------------------------------------- |
-| `proc name {args} {body}`                 | Define a procedure named `name` with parameters `args` and body `body`        |
-| `set var value`                           | Assign `value` to variable `var`                                              |
-| `[file dirname path]`                     | Extract the directory part of a file path                                     |
-| `[file tail path]`                        | Extract the filename (tail) from a file path                                  |
-| `[split string sep]`                      | Split `string` into a list using separator `sep`                              |
-| `[lindex list idx]`                       | Get the element at index `idx` from list `list`                               |
-| `open filename mode`                      | Open a file for reading (`r`) or writing (`w`)                                |
-| `[read fileId]`                           | Read entire contents of file opened with fileId                               |
-| `puts string`                             | Print `string` to stdout                                                      |
-| `puts -nonewline fileId string`           | Write `string` to file without appending newline                              |
-| `string map {pattern replace ...} string` | Replace occurrences of `pattern` in `string` with `replace`                   |
-| `[lsearch -all -inline list pattern]`     | Search all elements in `list` matching `pattern` and return matched elements  |
-| `foreach var list {body}`                 | Iterate over each element of `list` with loop variable `var` executing `body` |
-| `[expr {expression}]`                     | Evaluate mathematical or logical `expression`                                 |
-
 Create test.tcl file nd run it using tclsh command.
 
 ![image](/Images/D5/54.png)  
@@ -789,24 +677,6 @@ puts -nonewline $timing_file [read $tmp2_file]
 close $tmp2_file
 </pre>
 
-| Tcl Command         | Purpose                                                  |
-| ------------------- | -------------------------------------------------------- |
-| `set var value`     | Assigns a value to a variable                            |
-| `puts "text"`       | Prints text to the terminal                              |
-| `lsearch list val`  | Searches for `val` in a list and returns the index       |
-| `lsearch -inline`   | Returns matching *elements* instead of indices           |
-| `lsearch -all`      | Returns *all* matches, not just the first one            |
-| `join list sep`     | Joins elements of a list using a separator string        |
-| `lindex list idx`   | Fetches the item at index `idx` from `list`              |
-| `foreach var list`  | Iterates over elements in a list                         |
-| `if {condition} {}` | Conditional execution                                    |
-| `expr {math}`       | Evaluates a mathematical expression                      |
-| `lappend list item` | Appends an item to the end of a list                     |
-| `open path mode`    | Opens a file in specified mode (`r` = read, `w` = write) |
-| `read file`         | Reads content from a file handle                         |
-| `close file`        | Closes an open file handle                               |
-| `string match`      | Compares strings with pattern matching                   |
-
 Modify and run the test.tcl file. 
 
 ![image](/Images/D5/59.png)  
@@ -890,21 +760,6 @@ set tmp2_file [open /tmp/2 r]
 puts -nonewline $timing_file [read $tmp2_file]
 close $tmp2_file
 </pre>
-
-| Tcl Command                | Description                                                            |
-| -------------------------- | ---------------------------------------------------------------------- |
-| `set var value`            | Assigns `value` to `var`.                                              |
-| `lsearch list pattern`     | Finds the index of the first element in `list` that matches `pattern`. |
-| `lsearch -all -inline`     | Returns all matching elements, not just indices.                       |
-| `lindex list index`        | Gets the item at position `index` from `list`.                         |
-| `expr {...}`               | Evaluates a mathematical expression.                                   |
-| `string match pattern str` | Checks if `str` matches the `pattern`.                                 |
-| `lappend list_var value`   | Appends `value` to the list `list_var`.                                |
-| `open file mode`           | Opens a file for reading (`r`) or writing (`w`).                       |
-| `puts var`                 | Prints to console.                                                     |
-| `puts -nonewline`          | Prints without a newline at the end.                                   |
-| `close file`               | Closes the file handle.                                                |
-| `join list sep`            | Joins a list into a string with `sep` as separator.                    |
 
 Modify and run the test.tcl file.
 
@@ -1012,24 +867,6 @@ set tmp2_file [open /tmp/2 r]
 puts -nonewline $timing_file [read $tmp2_file]
 close $tmp2_file
 </pre>
-
-| Syntax                          | Meaning                                                               |
-| ------------------------------- | --------------------------------------------------------------------- |
-| `set var value`                 | Assigns `value` to the variable `var`                                 |
-| `foreach var list { ... }`      | Loops through each item in `list`, assigning it to `var` in the loop  |
-| `if {condition} { ... }`        | Runs the block only if `condition` is true                            |
-| `lsearch list pattern`          | Finds the index of the item matching the pattern                      |
-| `lsearch -all -inline list pat` | Returns all elements matching the pattern (not just indexes)          |
-| `lindex list index`             | Gets the item at position `index` from the list                       |
-| `lappend list_var item`         | Appends `item` to the list stored in `list_var`                       |
-| `expr {...}`                    | Evaluates arithmetic/logic expressions                                |
-| `string match pattern string`   | Checks if `string` matches the pattern (like `==` but with wildcards) |
-| `join list separator`           | Combines items in a list using the separator string                   |
-| `open filename mode`            | Opens a file with a given mode (`r`, `w`, `a`)                        |
-| `close fileID`                  | Closes the opened file                                                |
-| `puts`                          | Prints output (to console or file)                                    |
-| `puts -nonewline fileID string` | Writes a string without adding a new line                             |
-| `read fileID`                   | Reads the contents of the file                                        |
 
 ![image](/Images/D5/68.png) 
 
@@ -1155,24 +992,6 @@ close $tmp2_file
 close $timing_file
 </pre>
 
-| **Tcl Command**        | **Meaning / Usage**                                      |
-| ---------------------- | -------------------------------------------------------- |
-| `set var value`        | Assigns a value to a variable                            |
-| `open path mode`       | Opens a file in specified mode (`r`, `w`, `a`)           |
-| `close fileId`         | Closes a file that was opened                            |
-| `puts`                 | Prints text to console or writes to a file               |
-| `puts -nonewline`      | Same as `puts`, but doesn't add a new line               |
-| `foreach var list`     | Loops over each element in a list                        |
-| `lindex list index`    | Fetches the value at `index` in `list`                   |
-| `lsearch`              | Searches a list and returns index of a match             |
-| `lsearch -all -inline` | Returns a list of all matching elements                  |
-| `lappend list val`     | Appends a value to a list                                |
-| `expr {}`              | Evaluates math expressions (e.g., addition, subtraction) |
-| `string match`         | Checks if two strings match (can use wildcards like `*`) |
-| `join list sep`        | Joins list elements into a string using separator        |
-| `split str sep`        | Splits string into a list using separator                |
-| `lsort -unique`        | Sorts a list and removes duplicates                      |
-
 ![image](/Images/D5/73.png)  
 
 Output after running modified test.tcl file is shown. 
@@ -1281,14 +1100,6 @@ close $timing_file
 puts "set_timing_fpath $sdc_dirname/$sdc_filename.timing"
 </pre>
 
-| **Command / Syntax**                | **Description**                                                                          |
-| ----------------------------------- | ---------------------------------------------------------------------------------------- |
-| `lindex list index`                 | Extracts an element from a list at the given 0-based index.                              |
-| `split string sep`                  | Splits a string into a list of substrings separated by `sep`.                            |
-| `regexp -all -- {pattern} string`   | Checks if `pattern` matches anywhere in `string`. Returns number of matches (0 if none). |
-| `puts -nonewline filehandle string` | Writes `string` to the given filehandle without appending a newline.                     |
-| `string match pattern string`       | Returns 1 if `string` matches `pattern`, else 0.                                         |
-
 ![image](/Images/D5/79.png)  
 
 Output after running modified test.tcl file is shown.
@@ -1333,18 +1144,6 @@ if { ![regexp {^csv} $input] || $argc != 1 } {
     # Continue with further processing if input is valid
 }
 </pre>
-
-| **Command / Syntax**      | **Description**                                                     |
-| ------------------------- | ------------------------------------------------------------------- |
-| `set var value`           | Assigns `value` to variable `var`.                                  |
-| `exec command`            | Executes an external shell command and returns its output.          |
-| `lindex list index`       | Extracts element at 0-based `index` from `list`.                    |
-| `split string sep`        | Splits `string` into a list of substrings separated by `sep`.       |
-| `llength list`            | Returns the length (number of elements) of a list.                  |
-| `regexp {pattern} string` | Matches `pattern` against `string`, returns 1 if matched, 0 if not. |
-| `expr {expression}`       | Evaluates the mathematical or logical `expression`.                 |
-| `puts string`             | Prints `string` to standard output.                                 |
-| `exit`                    | Terminates the script execution immediately.                        |
 
 ![image](/Images/D5/84.png)  
 
@@ -1400,17 +1199,6 @@ puts $conf_file "report_worst_paths -numPaths 10000 "
 # Close the configuration file after writing all commands
 close $conf_file
 </pre>
-
-| **Syntax / Command**            | **Description**                                                                            |
-| ------------------------------- | ------------------------------------------------------------------------------------------ |
-| `source filename`               | Reads and executes Tcl commands from the specified file.                                   |
-| `procedure_name arguments`      | Calls a procedure (function) with specified arguments.                                     |
-| `set varName value`             | Assigns a value to a variable.                                                             |
-| `if {condition} { then-block }` | Executes the then-block if condition is true.                                              |
-| `open filename mode`            | Opens a file; mode can be `r` (read), `w` (write), or `a` (append). Returns a file handle. |
-| `puts string`                   | Prints string to standard output or file if preceded by file handle.                       |
-| `close filehandle`              | Closes an open file identified by the file handle.                                         |
-| `==`                            | Equality operator used inside expressions or conditions.                                   |
 
 <pre lang="tcl"> 
 # read_sdc.proc
@@ -1680,17 +1468,6 @@ puts "\nInfo: STA finished in $time_elapsed_in_sec seconds"
 puts "\nInfo: Refer to $OutputDirectory/$DesignName.results for warnings and errors"
 </pre>
 
-| **Syntax / Command**                             | **Description**                                                                                                  |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `set varName value`                              | Assigns a value to a variable.                                                                                   |
-| `time {script} count`                            | Measures the execution time (in microseconds) of the Tcl script run `count` times and returns a list of results. |
-| `exec command`                                   | Executes an external system command and returns its output.                                                      |
-| `puts string`                                    | Prints the string to standard output (console).                                                                  |
-| `expr {expression}`                              | Evaluates a mathematical or logical expression and returns the result.                                           |
-| `lindex list index`                              | Returns the element at `index` from the list (0-based).                                                          |
-| String concatenation by placing strings adjacent | You can concatenate strings by putting them next to each other or inside quotes with variables included.         |
-| Comments start with `#`                          | Everything after `#` on a line is ignored by Tcl, used for writing comments.                                     |
-
 ![image](/Images/D5/92.png)  
 
 Output after running tclify command is shown.
@@ -1837,23 +1614,6 @@ puts "worst_RAT_slack is \{$worst_RAT_slack\}"
 puts "Number_output_violations is \{$Number_output_violations\}"
 </pre>
 
-| **Syntax / Command**                        | **Description**                                                                                 |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `set varName value`                         | Assigns a value to a variable.                                                                  |
-| `open filename mode`                        | Opens a file with specified mode (`r` for read, `w` for write, etc.) and returns a file handle. |
-| `gets fileHandle var`                       | Reads a single line from the file into variable `var`, returns -1 on EOF.                       |
-| `close fileHandle`                          | Closes an opened file.                                                                          |
-| `regexp pattern string`                     | Returns 1 if the pattern matches anywhere in the string, else 0.                                |
-| `regexp -all -- pattern string`             | Returns the number of occurrences of `pattern` in `string`.                                     |
-| `lindex list index`                         | Extracts element at zero-based `index` from a list.                                             |
-| `join list ?joinString?`                    | Joins elements of a list into a string separated by `joinString` (default is space).            |
-| `incr varName ?increment?`                  | Increments variable `varName` by 1 or by the optional `increment`.                              |
-| `expr {expression}`                         | Evaluates a mathematical or logical expression and returns the result.                          |
-| `puts string`                               | Prints a string to standard output (console).                                                   |
-| `while {condition} { script }`              | Loops while the condition evaluates to true.                                                    |
-| `if {condition} { script } else { script }` | Conditional execution based on the evaluation of the condition.                                 |
-| Comments start with `#`                     | Everything after `#` on the line is ignored by Tcl and is used for comments/documentation.      |
-
 ![image](/Images/D5/100.png)  
 ![image](/Images/D5/101.png)  
 
@@ -1895,13 +1655,6 @@ puts [format $formatStr "-----------" "----------" "----------" "----------" "--
 puts "\n"  
 # Print another newline for spacing after the table
 </pre>
-
-| **Syntax/Command**                        | **Explanation**                                                                                               |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `puts "string"`                           | Prints the string to the console, followed by a newline.                                                      |
-| `set varName value`                       | Assigns a value to a variable.                                                                                |
-| `format formatStr args`                   | Formats the arguments according to the C-style format string (e.g., `%15s` means a 15-character wide string). |
-| `foreach var1 val1 var2 val2 ... { ... }` | Iterates over the list(s), assigning values to variables. Here used to unpack multiple variables.             |
 
 ![image](/Images/D5/104.png)  
 
