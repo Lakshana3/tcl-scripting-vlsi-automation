@@ -1,11 +1,15 @@
 ## Module 3: Clock & Input Constraint Scripting
-- Writing clock constraints with periods and duty cycles
+- Writing clock constraints with periods and duty cycles to SDC format
 - Using regular expressions for input port classification
 
+Shows how clock period is calculated.
+
 ![image](/Images/D3/1.png)
+
+Shows how a rectangular portion is used to extract the constraints inside it.
+
 ![image](/Images/D3/2.png)
 ![image](/Images/D3/3.png)
-![image](/Images/D3/4.png)
 
 <pre lang="tcl"> 
 # tclify_core.tcl
@@ -106,11 +110,25 @@ while { $i < $end_of_ports } {
 | `\[...\]` (in strings)                            | Escapes square brackets inside strings, needed when generating Tcl commands in strings.     |
 
 ![image](/Images/D3/5.png)
+
+Run tclify.
+
 ![image](/Images/D3/6.png)
+
+Open sdc file.
+
 ![image](/Images/D3/7.png)
+
+Defining bussed ports.
+
 ![image](/Images/D3/8.png)
-![image](/Images/D3/9.png)
+
+Checking where cpu_en is inside the verilog modules.
+
 ![image](/Images/D3/10.png)
+
+The logic for showing the bussed ports is shown.
+
 ![image](/Images/D3/11.png)
 
 <pre lang="tcl"> 
@@ -253,23 +271,50 @@ close $tmp2_file
 
 ![image](/Images/D3/12.png)
 ![image](/Images/D3/13.png)
+
+Changing $end_of_ports to 6 to check fewer lines.
+
 ![image](/Images/D3/14.png)
+
+Output of running tclify is shown.
+
 ![image](/Images/D3/15.png)
+
+Changing to $end_of_ports and running it fully.
+
 ![image](/Images/D3/16.png)
 ![image](/Images/D3/17.png)
 ![image](/Images/D3/18.png)
+
+Run the 'tclify' script and pipe the output to 'grep' to filter and show only lines containing the phrase "replace multiple spaces".
+
 ![image](/Images/D3/19.png)
+
+Changing $end_of_ports to 6 again.
+
 ![image](/Images/D3/20.png)
+
+Output of running tclify is shown.
+
 ![image](/Images/D3/21.png)
+
+Run the 'tclify' script and filter the output to show only lines containing the phrase "input port name".
+
 ![image](/Images/D3/22.png)
 
 <pre lang="tcl"> 
 # tclify_core.tcl
 
+# Print info message.
 puts "\nInfo: SDC created. Please use constraints in path $OutputDirectory/$DesignName.sdc"
 </pre>
 
 ![image](/Images/D3/23.png)
+
+Output of running tclify is shown. 
+Open openMSP430.sdc file. 
+
 ![image](/Images/D3/24.png)
+
 ![image](/Images/D3/25.png)
 ![image](/Images/D3/26.png)
