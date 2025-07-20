@@ -33,6 +33,8 @@ The tclify command should handle these scenarios:
 
 ![image](/Images/D1/8.png)
 
+Create wrapper called ``tclify.sh``.
+
 <pre lang="sh"> 
 #!/bin/tcsh -f
 # ---------------------------------------------------------------------------- #
@@ -113,6 +115,8 @@ else
     tclsh tclify_core.tcl $argv[1]
 endif
 </pre>
+
+Change permissions recursively (-R) on the 'tclify' file granting read (4), write (2), and execute (1) permissions to everyone (owner, group, others). This makes 'tclify' fully accessible to all users.
 
 The output of each scenario is shown.
 
