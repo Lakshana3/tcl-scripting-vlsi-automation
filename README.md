@@ -36,7 +36,7 @@ The content is aimed at enabling automation in digital design flows by providing
 
 ## TCL Syntax used in the course
 
-| **Tcl Syntax**                            | **Meaning**                                                                                     |
+| **Tcl Syntax**                            | **Description**                                                                                     |
 | ----------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `set var value`                           | Assigns a value to a variable.                                                                  |
 | `$var` or `${var}`                        | Retrieves the value of a variable.                                                              |
