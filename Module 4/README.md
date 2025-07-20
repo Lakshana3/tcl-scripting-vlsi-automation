@@ -1,6 +1,7 @@
 ## Module 4: Synthesis & Yosys Integration
 - Developing complete synthesis scripts
-- Memory module synthesis using Yosys and TCL error handling
+- Memory module synthesis using Yosys
+- Hierarchy checks and error handling in TCL
 
 <pre lang="tcl"> 
 # tclify_core.tcl
@@ -113,12 +114,22 @@ puts "\nInfo: SDC created. Please use constraints in path  $OutputDirectory/$Des
   
 ![image](/Images/D4/1.png)
 ![image](/Images/D4/2.png)
+
+Output of running tclify command. 
+
 ![image](/Images/D4/3.png)
 ![image](/Images/D4/4.png)
 ![image](/Images/D4/5.png)
+
+Displaying contents of the sdc file.
+
 ![image](/Images/D4/6.png)
 ![image](/Images/D4/7.png)
+
+Next sub task.
 ![image](/Images/D4/8.png)
+
+Explanation of the memory module.
 ![image](/Images/D4/9.png)
 ![image](/Images/D4/10.png)
 ![image](/Images/D4/11.png)
@@ -163,7 +174,8 @@ endmodule
 ```
 
 <pre lang="markdown">
-memory.ys:
+# memory.ys - file containing all yosys commands
+    
 # Read the standard cell library used for synthesis
 # -lib             : tells yosys it's a library file, not a design file
 # -ignore_miss_dir : avoids errors if pin directions are missing
@@ -197,10 +209,22 @@ write_verilog memory_synth.v
 </pre>
 
 ![image](/Images/D4/13.png)
+
+Open yosys.
+
 ![image](/Images/D4/14.png)
+
+Put in the commands present in the .ys file.
+
 ![image](/Images/D4/15.png)
+
+```show```command opens a GUI window showing the schematic of the current design.
+
 ![image](/Images/D4/16.png)
 ![image](/Images/D4/17.png)
+
+Next task.
+
 ![image](/Images/D4/18.png)
 
 <pre lang="tcl">
@@ -262,7 +286,12 @@ close $fileId
 | `${var}` or `$var`              | Accesses the value stored in a variable                             |
 
 ![image](/Images/D4/19.png)
+
+Output after running tclify. 
+Open openMSP430.hier.ys file which contains Yosys synthesis commands.
+
 ![image](/Images/D4/20.png)
+
 ![image](/Images/D4/21.png)
 
 <pre lang="tcl">
@@ -297,17 +326,42 @@ puts "err flag is $my_err"
 | `"\\n"`                    | Newline character in a string                                                    |
 
 ![image](/Images/D4/22.png)
+
+Output after running tclify command. 
+
 ![image](/Images/D4/23.png)
-![image](/Images/D4/24.png)
-![image](/Images/D4/25.png)
+
+Changing the ``osmp_clock_module`` instance name in the openMSP430.v top module. 
+
 ![image](/Images/D4/26.png)
+
+Output after running tclify command.
+
 ![image](/Images/D4/27.png)
+
+Checking the openMSP430_hierarchy_check.log file for ERROR. 
+
 ![image](/Images/D4/28.png)
 ![image](/Images/D4/29.png)
+
+Using ``grep`` command to check error in log file.
+
 ![image](/Images/D4/30.png)
+
+Changing the ``osmp_clock_module`` instance name back to normal.
+
 ![image](/Images/D4/31.png)
+
+Running tclify again. No error shows up.
+
 ![image](/Images/D4/32.png)
+
+Checking the log file for ERROR.
+
 ![image](/Images/D4/33.png)
+
+Check where the ``osmp_clock_module`` is present.
+
 ![image](/Images/D4/34.png)
 
 <pre lang="tcl">
@@ -378,14 +432,38 @@ puts "\nInfo: Please find hierarchy check details in [file normalize $OutputDire
 | `!= -1`                         | Used with `gets` — means end of file not yet reached.                  |
 
 ![image](/Images/D4/35.png)
-![image](/Images/D4/36.png)
+
+Remove output directory and run tclify.
+
 ![image](/Images/D4/37.png)
+
+Output is shown.
+Open openMSP430.hier.ys file.
+
 ![image](/Images/D4/38.png)
 ![image](/Images/D4/39.png)
+
+Open log file and check for ERROR.
+
 ![image](/Images/D4/40.png)
 ![image](/Images/D4/41.png)
+
+Use grep command to search for error in log file.
+
 ![image](/Images/D4/42.png)
+
+Modify the ``osmp_clock_module`` instance name in the openMSP430.v top module to create ERROR.
+
 ![image](/Images/D4/43.png)
+
+Output after running tclify command is shown.
+
 ![image](/Images/D4/44.png)
+
+Use grep command to search for error.
+
 ![image](/Images/D4/45.png)
+
+Modify the ``osmp_clock_module`` instance name back.
+
 ![image](/Images/D4/46.png)
