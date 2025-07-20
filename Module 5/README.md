@@ -1,6 +1,7 @@
 ## Module 5: QOR Report Generation
 - Runtime and delay extraction using TCL procs
 - Converting constraints to OpenTimer format and bit-blasting bussed signals
+- Generating Quality of Results (QOR): WNS, FEP, instance count, runtime
 
 <pre lang="tcl"> 
 # tclify_core.tcl
@@ -89,21 +90,71 @@ puts "\nInfo: Please refer to log $OutputDirectory/$DesignName.synthesis.log"
 | `>&`                   | Redirects both stdout and stderr to a file (used in shell via Tcl) |
   
 ![image](/Images/D5/1.png)  
+
+Remove output dir and run tclify.
+
 ![image](/Images/D5/2.png)  
+
+Output after running tclify command is shown.
+Use grep to check for errors in synthesis log file.
+
 ![image](/Images/D5/3.png)  
+
+Modify the osmp_clock_module instance name in the openMSP430.v top module to create ERROR.
+
 ![image](/Images/D5/4.png)  
+
+Remove output dir and run tclify.
+
 ![image](/Images/D5/5.png)  
+
+Output after running tclify command is shown.
+Use grep to check for errors in synthesis log file.
+
 ![image](/Images/D5/6.png)  
+
+Modify the osmp_clock_module instance name back to how it was.
+
 ![image](/Images/D5/7.png)  
+
+The .synth.v file is not created yet because of the error. So run tclify again.
+
 ![image](/Images/D5/8.png)  
+
+Next task:
+
 ![image](/Images/D5/9.png)  
+
+Check if .synth.v file is present and open it. 
+
 ![image](/Images/D5/10.png)  
+
+All the * portions have to be removed.
+
 ![image](/Images/D5/11.png)  
+
+Use grep to filter out * portions.
+
 ![image](/Images/D5/12.png)  
+
+Using ``grep  "*" file_name | wc`` to get the word count of the filtered portions and remove all lines containing * as a whole word from the synthesized Verilog file.
+
 ![image](/Images/D5/13.png)  
+
+Output of the above command. 
+
 ![image](/Images/D5/14.png)  
+
+From the synthesized Verilog file, remove lines containing '*' (as a whole word), then filter and display only the lines that contain a backslash '\'.
+
 ![image](/Images/D5/15.png)  
+
+Check their word count.
+
 ![image](/Images/D5/16.png)  
+
+The code should be converted to the right side snippet by removing '\'.
+
 ![image](/Images/D5/17.png)  
 
 <pre lang="tcl"> 
@@ -161,19 +212,34 @@ puts "\n$OutputDirectory/$DesignName.final.synth.v"
 | `$variable`                        | Accesses the value of a variable                                    |
 
 ![image](/Images/D5/18.png)  
+
+Remove out dir and run tclify.
+
 ![image](/Images/D5/19.png)  
+
+Output after running tclify command is shown.
+Check if .synth.v is there and open it.
+
 ![image](/Images/D5/20.png)  
 ![image](/Images/D5/21.png)  
+
+Use split screen ``:sp`` command to open the .final.synth.v file also in the same tab.
+
 ![image](/Images/D5/22.png)  
+
+Alternate between windows uusing ctrl+w. 
+Go to last line using G.
+
 ![image](/Images/D5/23.png)  
+
+Use ``:set number`` to show line numbers. 
+The .final.synth.v file has edited out more lines.
+
 ![image](/Images/D5/24.png)  
+
+Using procs:
+
 ![image](/Images/D5/25.png)  
-![image](/Images/D5/26.png)  
-![image](/Images/D5/27.png)  
-![image](/Images/D5/28.png)  
-![image](/Images/D5/29.png)  
-![image](/Images/D5/30.png)  
-![image](/Images/D5/31.png)  
 
 <pre lang="tcl"> 
 # set_num_threads.proc
@@ -236,6 +302,24 @@ set_multi_cpu_usage -localCpu 8 -help
 | `lassign $list var1 var2`           | Assigns values from list to variables (e.g., from args to options) |
 | `set var value`                     | Assigns value to a variable                                        |
 | `$var`                              | Fetches the value of a variable                                    |
+
+![image](/Images/D5/26.png)  
+
+Running the proc using tclsh. 
+
+![image](/Images/D5/27.png)  
+
+Modifying the proc file and running it again.
+
+![image](/Images/D5/28.png)  
+![image](/Images/D5/29.png)  
+
+Modifying the proc file and running it again.
+
+![image](/Images/D5/30.png)  
+![image](/Images/D5/31.png)  
+
+Modifying the proc file and running it again.
 
 ![image](/Images/D5/32.png)  
 ![image](/Images/D5/33.png)  
@@ -304,14 +388,36 @@ proc reopenStdout {file} {
 | `$var`                    | Refers to the value of variable `var`         |
 
 ![image](/Images/D5/35.png)  
+
+Place on the link and click gf or use :e to open link without closing the current file. 
+
 ![image](/Images/D5/36.png)  
 ![image](/Images/D5/37.png)  
+
+Return using :e#.
+
 ![image](/Images/D5/38.png)  
+
+Remove out dir and run tclify.
+
 ![image](/Images/D5/39.png)  
+
+Output after running tclify command is shown.
+Open conf file.
+
 ![image](/Images/D5/40.png)  
 ![image](/Images/D5/41.png)  
+
+Modify the proc file to remove debugging lines.
+
 ![image](/Images/D5/42.png)  
+
+Output after running tclify command is shown.
+
 ![image](/Images/D5/43.png)  
+
+Output present in conf file is shown.
+
 ![image](/Images/D5/44.png)  
 
 <pre lang="tcl"> 
@@ -400,6 +506,10 @@ proc read_lib args {
 | `break`                       | Exits a loop or switch early                                        |
 
 ![image](/Images/D5/46.png)  
+
+Output after running tclify command is shown.
+Use cat command to output the contents of conf file.
+
 ![image](/Images/D5/47.png)  
 
 <pre lang="tcl"> 
@@ -441,7 +551,14 @@ proc read_verilog {arg1} {
 | `$var`                      | Access the value of variable `var`   |
 
 ![image](/Images/D5/49.png)  
+
+Output after running tclify command is shown.
+Use cat command to output the contents of conf file.
+
 ![image](/Images/D5/50.png)  
+
+Next task:
+
 ![image](/Images/D5/51.png)  
 ![image](/Images/D5/52.png)   
 
@@ -586,10 +703,16 @@ read_sdc /home/vsduser/vsdsynth/outdir_openMSP430/openMSP430.sdc
 | `foreach var list {body}`                 | Iterate over each element of `list` with loop variable `var` executing `body` |
 | `[expr {expression}]`                     | Evaluate mathematical or logical `expression`                                 |
 
+Create test.tcl file nd run it using tclsh command.
+
 ![image](/Images/D5/54.png)  
 ![image](/Images/D5/55.png)  
+
+Contents of /tmp/3 file.
+
 ![image](/Images/D5/56.png)  
-![image](/Images/D5/57.png)  
+
+Contents of /tmp/1 file. 
 ![image](/Images/D5/58.png)  
 
 <pre lang="tcl"> 
@@ -684,10 +807,20 @@ close $tmp2_file
 | `close file`        | Closes an open file handle                               |
 | `string match`      | Compares strings with pattern matching                   |
 
+Modify and run the test.tcl file. 
+
 ![image](/Images/D5/59.png)  
+
+Output after running test.tcl file is shown.
+
 ![image](/Images/D5/60.png)  
 ![image](/Images/D5/61.png)  
+
+Contents of /tmp/2 file.
 ![image](/Images/D5/62.png)  
+
+Contents of /tmp/3 file.
+
 ![image](/Images/D5/63.png)  
 
 <pre lang="tcl"> 
@@ -773,9 +906,20 @@ close $tmp2_file
 | `close file`               | Closes the file handle.                                                |
 | `join list sep`            | Joins a list into a string with `sep` as separator.                    |
 
+Modify and run the test.tcl file.
+
 ![image](/Images/D5/64.png)  
-![image](/Images/D5/65.png)  
+
+Output after running test.tcl file is shown.
+
+![image](/Images/D5/65.png) 
+
+Contents of /tmp/2 file.
+
 ![image](/Images/D5/66.png)  
+
+Contents of /tmp/3 file.
+
 ![image](/Images/D5/67.png)  
 
 <pre lang="tcl"> 
@@ -887,9 +1031,15 @@ close $tmp2_file
 | `puts -nonewline fileID string` | Writes a string without adding a new line                             |
 | `read fileID`                   | Reads the contents of the file                                        |
 
-![image](/Images/D5/68.png)  
+![image](/Images/D5/68.png) 
+
+Output after running modified test.tcl file is shown.
+
 ![image](/Images/D5/69.png)  
 ![image](/Images/D5/70.png)  
+
+Contents of /tmp/2 file.
+
 ![image](/Images/D5/71.png)  
 ![image](/Images/D5/72.png)  
 
@@ -1024,10 +1174,22 @@ close $timing_file
 | `lsort -unique`        | Sorts a list and removes duplicates                      |
 
 ![image](/Images/D5/73.png)  
+
+Output after running modified test.tcl file is shown. 
+
 ![image](/Images/D5/74.png)  
+
+Contents of /tmp/2 file.
+
 ![image](/Images/D5/75.png)  
+
+Contents of /tmp/3 file.
+
 ![image](/Images/D5/76.png)  
 ![image](/Images/D5/77.png)  
+
+Next task:
+
 ![image](/Images/D5/78.png)  
 
 <pre lang="tcl"> 
@@ -1128,8 +1290,17 @@ puts "set_timing_fpath $sdc_dirname/$sdc_filename.timing"
 | `string match pattern string`       | Returns 1 if `string` matches `pattern`, else 0.                                         |
 
 ![image](/Images/D5/79.png)  
+
+Output after running modified test.tcl file is shown.
+
 ![image](/Images/D5/80.png)  
+
+Contents of /tmp/3 file.
+
 ![image](/Images/D5/81.png)  
+
+Contents of timing file.
+
 ![image](/Images/D5/82.png)  
 ![image](/Images/D5/83.png)  
 
@@ -1462,12 +1633,22 @@ proc read_sdc {arg1} {
 }
 </pre>
 
-![image](/Images/D5/85.png)  
+![image](/Images/D5/85.png)
+
+Output after running tclify command is shown.
+Open conf file.
+
 ![image](/Images/D5/86.png)  
+
+Use gf to open the links without clocking the main file.
+
 ![image](/Images/D5/87.png)  
 ![image](/Images/D5/88.png)  
 ![image](/Images/D5/89.png)  
-![image](/Images/D5/90.png)  
+![image](/Images/D5/90.png) 
+
+Next task:
+
 ![image](/Images/D5/91.png)  
 
 <pre lang="tcl"> 
@@ -1511,12 +1692,28 @@ puts "\nInfo: Refer to $OutputDirectory/$DesignName.results for warnings and err
 | Comments start with `#`                          | Everything after `#` on a line is ignored by Tcl, used for writing comments.                                     |
 
 ![image](/Images/D5/92.png)  
+
+Output after running tclify command is shown.
+Open results file.
+
 ![image](/Images/D5/93.png)  
 ![image](/Images/D5/94.png)  
+
+Search ``/RAT`` to find worst output delay violation. Press n to see next result.
+
 ![image](/Images/D5/95.png)  
+
+As it goes down, RAT only decreases.
+
 ![image](/Images/D5/96.png)  
-![image](/Images/D5/97.png)  
+![image](/Images/D5/97.png) 
+
+Use grep command to filter out "RAT".
+
 ![image](/Images/D5/98.png)  
+
+Check the word count of filtered results.
+
 ![image](/Images/D5/99.png)  
 
 <pre lang="tcl"> 
@@ -1659,6 +1856,9 @@ puts "Number_output_violations is \{$Number_output_violations\}"
 
 ![image](/Images/D5/100.png)  
 ![image](/Images/D5/101.png)  
+
+Output after running tclify command is shown.
+
 ![image](/Images/D5/103.png)  
 
 <pre lang="tcl"> 
@@ -1704,6 +1904,9 @@ puts "\n"
 | `foreach var1 val1 var2 val2 ... { ... }` | Iterates over the list(s), assigning values to variables. Here used to unpack multiple variables.             |
 
 ![image](/Images/D5/104.png)  
+
+Output after running tclify command is shown.
+
 ![image](/Images/D5/105.png)  
 
 <pre lang="tcl"> 
@@ -1714,4 +1917,7 @@ xset worst_negative_hold_slack "$worst_negative_hold_slack -0.0200ns"
 </pre>
 
 ![image](/Images/D5/106.png)  
+
+Output after running tclify command is shown.
+
 ![image](/Images/D5/107.png)
