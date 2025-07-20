@@ -3,6 +3,8 @@
 - Memory module synthesis using Yosys
 - Hierarchy checks and error handling in TCL
 
+This code snippet extracts output delay constraint start indices and construct set_out_delay & transition commands for each output port.
+
 <pre lang="tcl"> 
 # tclify_core.tcl
 
@@ -118,6 +120,8 @@ Explanation of the memory module.
 ![image](/Images/D4/11.png)
 ![image](/Images/D4/12.png)
 
+Create memory module in verilog for yosys synthesis.
+
 ```verilog
 //memory.v
   
@@ -155,6 +159,7 @@ endmodule
         
 // Add this file inside the verilog module directory
 ```
+Write yosys synthesis commands in .ys file.
 
 <pre lang="markdown">
 # memory.ys - file containing all yosys commands
@@ -210,6 +215,8 @@ Next task.
 
 ![image](/Images/D4/18.png)
 
+This code snippet does heirarchy check of all verilog modules.
+
 <pre lang="tcl">
 # tclify_core.tcl
 
@@ -264,6 +271,8 @@ Open openMSP430.hier.ys file which contains Yosys synthesis commands.
 ![image](/Images/D4/20.png)
 
 ![image](/Images/D4/21.png)
+
+Adding error flag using catch.
 
 <pre lang="tcl">
 # tclify_core.tcl
@@ -326,6 +335,8 @@ Checking the log file for ERROR.
 Check where the ``osmp_clock_module`` is present.
 
 ![image](/Images/D4/34.png)
+
+Using a separate log file:
 
 <pre lang="tcl">
 # tclify_core.tcl
