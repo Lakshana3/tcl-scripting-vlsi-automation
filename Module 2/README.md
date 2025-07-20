@@ -216,7 +216,7 @@ The openMSP430_design_constraints.csv file.
 
 ![image](/Images/D2/28.png)
 
-This code snippet extracts clock constraint start indices.
+This code snippet sets row & col indices for section.
 
 <pre lang="tcl"> 
 # tclify_core.tcl
