@@ -2,24 +2,35 @@
 
 - The goal of the TCL-based flow involves converting a design description `.csv` file (with fields like design name, output directory, etc.) into a pre-layout synthesis and timing report using a single command.
 - This is done using a TCL-based framework/toolbox, here referred to as the TCLIFY TCL box.
+  
 ![image](/Images/D1/1.png)
+
 ![image](/Images/D1/2.png)
+
 - The process starts by creating a shell command (e.g., tclify) to:
   - Pass .csv input files from the UNIX shell to a TCL script.
   - Convert all inputs into format[1] and SDC format.
   - Send these to the Yosys synthesis tool.
 - Further convert format[1] and SDC to format[2], which is then passed to the Opentimer timing analysis tool.
 - Finally, generate output report.
+  
 ![image](/Images/D1/3.png)
+
 This is the design details csv file.
+
 ![image](/Images/D1/4.png)
+
 The tclify command should handle these scenarios:
 - No input file
 - Invalid CSV
 - Help message
+  
 ![image](/Images/D1/5.png)
+
 ![image](/Images/D1/6.png)
+
 ![image](/Images/D1/7.png)
+
 ![image](/Images/D1/8.png)
 
 <pre lang="sh"> 
