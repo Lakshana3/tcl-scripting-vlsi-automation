@@ -1,16 +1,42 @@
 ## Module 2: Variable Creation and Processing Constraints from CSV
+
 - Working with matrices and arrays in TCL
 - Parsing and validating CSV/SDC constraint files
 
+Subtasks are shown.
+
 ![image](/Images/D2/1.png)
+
+Understanding $argv.
+
 ![image](/Images/D2/2.png)
+
+Understanding how csv file will be represented in matrix form and can be manipulated to extract constraints. 
+
 ![image](/Images/D2/3.png)
+
+```cat filename	Displays the contents of the file named filename to the terminal.```
+
 ![image](/Images/D2/4.png)
+
+Explanation of how ```string map``` command works.
+
 ![image](/Images/D2/5.png)
+
+Matrix manipulations to extract constraints.
+
 ![image](/Images/D2/6.png)
+
 ![image](/Images/D2/7.png)
+
 ![image](/Images/D2/8.png)
+
+Working of ```file normalize```command.
+
 ![image](/Images/D2/9.png)
+
+Creating ```tclify_core.tcl``` script.
+
 ![image](/Images/D2/10.png)
 
 <pre lang="tcl"> 
@@ -103,7 +129,12 @@ return
 | `::namespace::command`          | Refers to a command in a specific Tcl namespace          |
 
 ![image](/Images/D2/11.png)
+
+Run the 'tclify' program/script located in the current directory, using 'openMSP430_design_details.csv' as the input CSV file.
+````./tclify openMSP430_design_details.csv````
+
 ![image](/Images/D2/12.png)
+
 ![image](/Images/D2/13.png)
 
 <pre lang="tcl">
@@ -169,19 +200,37 @@ if {![file exists $ConstraintsFile]} {
 | `file mkdir <path>`       | Creates a directory at the specified path if it does not already exist. |
 
 ![image](/Images/D2/14.png)
+
+Run tclify.
+
 ![image](/Images/D2/15.png)
+
 ![image](/Images/D2/16.png)
+
+Change values and check how tclify executes.
+
 ![image](/Images/D2/17.png)
 ![image](/Images/D2/18.png)
+
 ![image](/Images/D2/19.png)
 ![image](/Images/D2/20.png)
+
 ![image](/Images/D2/21.png)
 ![image](/Images/D2/22.png)
 ![image](/Images/D2/23.png)
+
+Next task - Readd constraints file and extract.
+
 ![image](/Images/D2/24.png)
 ![image](/Images/D2/25.png)
 ![image](/Images/D2/26.png)
+
+Shows how ```lindex```works.
+
 ![image](/Images/D2/27.png)
+
+The openMSP430_design_constraints.csv file.
+
 ![image](/Images/D2/28.png)
 
 <pre lang="tcl"> 
@@ -249,4 +298,7 @@ puts "output_ports_start = $output_ports_start"
 | `lindex list index`         | Returns the item at the given position from a list. Nested `lindex` is used to drill down.        |
 
 ![image](/Images/D2/29.png)
+
+Output of running tclify is shown.
+
 ![image](/Images/D2/30.png)
