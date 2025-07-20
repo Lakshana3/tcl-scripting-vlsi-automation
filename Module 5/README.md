@@ -3,6 +3,8 @@
 - Converting constraints to OpenTimer format and bit-blasting bussed signals
 - Generating Quality of Results (QOR): WNS, FEP, instance count, runtime
 
+This code snippet has the main yosys synthesis script.
+
 <pre lang="tcl"> 
 # tclify_core.tcl
 
@@ -142,6 +144,8 @@ The code should be converted to the right side snippet by removing '\'.
 
 ![image](/Images/D5/17.png)  
 
+This code snippet modifies synth.v to be usable by Opentimer.
+
 <pre lang="tcl"> 
 # tclify_core.tcl
 #--------------------------- Edit synth.v to be usable by Opentimer --------------------------------#
@@ -280,6 +284,8 @@ Modifying the proc file and running it again.
 
 ![image](/Images/D5/32.png)  
 ![image](/Images/D5/33.png)  
+
+Initializing number of threads, libraries, sdc, verilog netlist path to provide as inputs to OpenTimer.
 
 <pre lang="tcl"> 
 # tclify_core.tcl
@@ -466,6 +472,8 @@ Next task:
 
 ![image](/Images/D5/51.png)  
 ![image](/Images/D5/52.png)   
+
+This is a test file for testing out read_sdc proc.
 
 <pre lang="tcl"> 
 # test.tcl
@@ -1115,6 +1123,8 @@ Contents of timing file.
 ![image](/Images/D5/82.png)  
 ![image](/Images/D5/83.png)  
 
+Lets modify the tclify_core.tcl to add the commands to ru OpenTimer.
+
 <pre lang="tcl"> 
 # tclify_core.tcl
 
@@ -1661,6 +1671,8 @@ puts "\n"
 Output after running tclify command is shown.
 
 ![image](/Images/D5/105.png)  
+
+Adding more values to see how they are shown in the table.
 
 <pre lang="tcl"> 
 # tclify_core.tcl
