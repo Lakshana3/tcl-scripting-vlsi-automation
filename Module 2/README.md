@@ -39,6 +39,8 @@ Creating ```tclify_core.tcl``` script.
 
 ![image](/Images/D2/10.png)
 
+This code snippet converts .csv to matrix and creates initial variables "DesignName OutputDirectory NetlistDirectory EarlyLibraryPath LateLibraryPath".      
+
 <pre lang="tcl"> 
 # tclify_core.tcl
 
@@ -126,6 +128,8 @@ Run the 'tclify' program/script located in the current directory, using 'openMSP
 
 ![image](/Images/D2/13.png)
 
+This code snippet validates that required files and directories mentioned in csv file exist or not.
+
 <pre lang="tcl">
 # tclify_core.tcl
   
@@ -211,6 +215,8 @@ Shows how ```lindex```works.
 The openMSP430_design_constraints.csv file.
 
 ![image](/Images/D2/28.png)
+
+This code snippet extracts clock constraint start indices.
 
 <pre lang="tcl"> 
 # tclify_core.tcl
