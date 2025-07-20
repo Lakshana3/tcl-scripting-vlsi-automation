@@ -97,18 +97,6 @@ while { $i < $end_of_ports } {
 }
 </pre>
 
-| **Syntax / Command**                              | **Explanation**                                                                             |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `set var value`                                   | Assigns a value to a variable.                                                              |
-| `[expr {...}]`                                    | Evaluates an arithmetic expression (e.g., `expr {$a + $b}` returns sum of a and b).         |
-| `constraints search rect col1 row1 col2 row2 val` | Searches for a string `val` inside a rectangle in the matrix. Returns `{column row}` pairs. |
-| `lindex $list n`                                  | Retrieves the nth element of a list. Useful for extracting matrix cell positions.           |
-| `constraints get cell col row`                    | Fetches the actual content of the cell at the given column and row index in the matrix.     |
-| `open $file "w"`                                  | Opens a file in write mode.                                                                 |
-| `puts $file "..."`                                | Prints to a file. Add `-nonewline` to avoid adding newline after the print.                 |
-| `while {condition} { ... }`                       | A loop that executes as long as the condition is true.                                      |
-| `\[...\]` (in strings)                            | Escapes square brackets inside strings, needed when generating Tcl commands in strings.     |
-
 ![image](/Images/D3/5.png)
 
 Run tclify.
@@ -249,25 +237,6 @@ while { $i < $end_of_ports } {
 # Close the last opened temporary file
 close $tmp2_file
 </pre>
-
-| Syntax                  | Meaning                                               |
-| ----------------------- | ----------------------------------------------------- |
-| `set var value`         | Assigns `value` to variable `var`                     |
-| `[command args]`        | Executes `command` and returns its result             |
-| `expr {}`               | Evaluates math or logical expression                  |
-| `if {condition} {}`     | Conditional execution                                 |
-| `while {condition} {}`  | Loop while condition is true                          |
-| `foreach var list {}`   | Loop over each element in a list                      |
-| `puts "text"`           | Prints text to terminal                               |
-| `puts -nonewline`       | Prints without newline                                |
-| `open path mode`        | Opens a file (modes: `"r"` for read, `"w"` for write) |
-| `close file_id`         | Closes the opened file                                |
-| `glob -dir path *.v`    | Gets list of `.v` files in directory                  |
-| `split string sep`      | Splits string by separator                            |
-| `join list sep`         | Joins list into string with separator                 |
-| `lsort -unique list`    | Sorts and removes duplicates                          |
-| `regexp pattern string` | Checks regex match                                    |
-| `regsub`                | Substitutes regex in string                           |
 
 ![image](/Images/D3/12.png)
 ![image](/Images/D3/13.png)
