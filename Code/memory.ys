@@ -1,0 +1,41 @@
+# Read the standard cell library used for synthesis
+# -lib             : tells yosys it's a library file, not a design file
+# -ignore_miss_dir : avoids errors if pin directions are missing
+# -setattr blackbox: marks cells as blackbox modules (used for logic synthesis)
+read_liberty -lib -ignore_miss_dir -setattr blackbox /home/vsduser/vsdsynth/osu018_stdcells.lib
+
+# Read the Verilog RTL source file
+read_verilog memory.v
+
+# Define the top-level module for synthesis
+# This is necessary if there are multiple modules or hierarchy
+synth -top memory
+
+# Split multi-bit nets connected to ports into separate 1-bit wires
+# Useful for older tools or gate-level synthesis
+splitnets -ports -format
+
+# Map flip-flops and sequential elements using the provided standard cell library
+dfflibmap -liberty /home/vsduser/vsdsynth/osu018_stdcells.lib
+
+# Perform generic optimizations (remove redundant logic, constant folding, etc.)
+opt
+
+# Run technology mapping using ABC tool (And-Inverter Graph based logic synthesis)
+# Converts RTL-level logic into gates from the given library
+abc -liberty /home/vsduser/vsdsynth/osu018_stdcells.lib
+
+# Flatten hierarchical modules into a single-level netlist
+flatten
+
+# Clean up unnecessary wires, cells, and modules aggressively
+clean -purge
+
+# Run another round of optimizations after flattening
+opt
+
+# Clean up again to remove anything unused after optimization
+clean
+
+# Write the final synthesized gate-level Verilog netlist to a file
+write_verilog memory_synth.v
