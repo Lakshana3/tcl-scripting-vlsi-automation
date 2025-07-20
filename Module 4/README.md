@@ -94,23 +94,6 @@ close $sdc_file
 
 puts "\nInfo: SDC created. Please use constraints in path  $OutputDirectory/$DesignName.sdc"
 </pre>
-
-| **TCL Command**               | **Description**                                                             |
-| ----------------------------- | --------------------------------------------------------------------------- |
-| `set var value`               | Assign `value` to a variable named `var`                                    |
-| `expr {math}`                 | Evaluate a mathematical expression                                          |
-| `lindex list index`           | Get the item at position `index` from `list`                                |
-| `split string sep`            | Split a string into a list using separator `sep`                            |
-| `glob -dir path *.v`          | Get a list of files matching pattern (e.g., `.v` files) in the given `path` |
-| `open filename mode`          | Open a file in read (`r`) or write (`w`) mode                               |
-| `gets fd line`                | Read a line from file descriptor `fd` into variable `line`                  |
-| `regexp -all -- pattern str`  | Match all occurrences of `pattern` in `str`; `--` ends option parsing       |
-| `regsub -all \s+ string rep`  | Replace all sequences of spaces in `string` with `rep`                      |
-| `lsort -unique list`          | Sort a list and remove duplicate entries                                    |
-| `join list sep`               | Join elements of `list` into a string using separator `sep`                 |
-| `puts -nonewline file str`    | Write `str` to `file` without adding a newline at the end                   |
-| `while {cond} {body}`         | Loop and execute `body` as long as `cond` is true                           |
-| `if {cond} {then} else {alt}` | Execute `then` block if `cond` is true, else execute `alt` block            |
   
 ![image](/Images/D4/1.png)
 ![image](/Images/D4/2.png)
@@ -273,18 +256,6 @@ puts -nonewline $fileId "\nhierarchy -check"
 close $fileId
 </pre>
 
-| Tcl Syntax                      | Description                                                         |
-| ------------------------------- | ------------------------------------------------------------------- |
-| `set var value`                 | Assigns a value to a variable                                       |
-| `puts "text"`                   | Prints a string with a newline                                      |
-| `puts -nonewline fileId "text"` | Writes to a file or console without a newline                       |
-| `open filename "mode"`          | Opens a file in read ("r") or write ("w") mode                      |
-| `close fileId`                  | Closes the opened file                                              |
-| `glob -dir path *.v`            | Returns a list of files matching the pattern (e.g., all `.v` files) |
-| `foreach var list { ... }`      | Iterates over each item in a list                                   |
-| `"\n..."`                       | Adds a newline character in the string                              |
-| `${var}` or `$var`              | Accesses the value stored in a variable                             |
-
 ![image](/Images/D4/19.png)
 
 Output after running tclify. 
@@ -316,14 +287,6 @@ set my_err [catch {
 # Print the error flag: 0 means success, 1 means error occurred
 puts "err flag is $my_err"
 </pre>
-
-| Tcl Syntax                 | Description                                                                      |
-| -------------------------- | -------------------------------------------------------------------------------- |
-| `catch { script } varName` | Runs a block of code and stores error flag in `varName` (0 = success, 1 = error) |
-| `exec command args`        | Executes an external system command (like calling Yosys)                         |
-| `>&`                       | Redirects both stdout and stderr to a file (used inside `exec`)                  |
-| `puts "text"`              | Prints a message to the terminal                                                 |
-| `"\\n"`                    | Newline character in a string                                                    |
 
 ![image](/Images/D4/22.png)
 
@@ -414,22 +377,6 @@ if { $my_err } {
 # Print the full normalized path to the log file for reference
 puts "\nInfo: Please find hierarchy check details in [file normalize $OutputDirectory/$DesignName.hierarchy_check.log] for more info"
 </pre>
-
-| Tcl Command                     | Purpose                                                                |
-| ------------------------------- | ---------------------------------------------------------------------- |
-| `set var value`                 | Assigns `value` to variable `var`.                                     |
-| `puts "text"`                   | Prints the given `text` to the console.                                |
-| `open filename r`               | Opens a file in read (`r`) mode and returns a file ID (handle).        |
-| `gets fid line`                 | Reads a line from file with ID `fid` and stores it in variable `line`. |
-| `while {condition}`             | Repeats block while condition is true.                                 |
-| `regexp -all -- pattern string` | Returns number of matches of `pattern` in `string`.                    |
-| `incr var value`                | Increments the value of `var` by `value` (default = 1).                |
-| `lindex string n`               | Gets the nth word (0-based) from a string.                             |
-| `file normalize path`           | Converts a path to its full normalized form.                           |
-| `catch {command} msg`           | Executes `command`, captures any error, stores it in `msg`.            |
-| `if {condition}`                | Executes block if condition is true.                                   |
-| `else`                          | Executes block if `if` condition is false.                             |
-| `!= -1`                         | Used with `gets` — means end of file not yet reached.                  |
 
 ![image](/Images/D4/35.png)
 
