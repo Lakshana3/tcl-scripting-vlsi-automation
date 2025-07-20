@@ -11,6 +11,8 @@ Shows how a rectangular portion is used to extract the constraints inside it.
 ![image](/Images/D3/2.png)
 ![image](/Images/D3/3.png)
 
+This code snippet extracts clock constraint start indices and construct create_clock & timing commands for each clock port.
+
 <pre lang="tcl"> 
 # tclify_core.tcl
 
@@ -118,6 +120,8 @@ Checking where cpu_en is inside the verilog modules.
 The logic for showing the bussed ports is shown.
 
 ![image](/Images/D3/11.png)
+
+This code snippet extracts input constraint start indices and construct set_input_delay & transition commands for each input port.
 
 <pre lang="tcl"> 
 # tclify_core.tcl
