@@ -114,5 +114,8 @@ else
 endif
 </pre>
 
+The output of each scenario is shown.
+
 ![image](/Images/D1/10.png)
+
 ![image](/Images/D1/11.png)
